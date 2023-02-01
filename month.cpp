@@ -1,6 +1,3 @@
-/*
-*/
-
 #include <iostream>
 int main()
 {
@@ -10,13 +7,22 @@ int main()
     std::cout << "Enter a month: ";
     int month;
     std::cin >> month;
+    bool leap;
     if(year % 4 != 0)
-        std::cout << "It is a common year" << std::endl;
+        leap = false;
     else if(year % 100 != 0)
-        std::cout << "It is a leap year" << std::endl;
+        leap = true;
     else if(year % 400 != 0)
-        std::cout << "It is a common year" << std::endl;
+        leap = false;
     else
-        std::cout << "It is a leap year" << std::endl;
+        leap = true;
     return 0;
+    if(month == 2 && leap == false)
+        std::cout << "28 days" << std::endl;
+    else if(month == 2 && leap == true)
+        std::cout << "29 days" << std::endl;
+    else if(month == 4 || month == 6 || month == 9 || month == 11)
+        std::cout << "30 days" << std::endl;
+    else
+        std::cout << "31 days" << std::endl;
 }
